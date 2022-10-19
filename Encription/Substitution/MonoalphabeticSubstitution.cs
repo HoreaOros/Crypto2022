@@ -6,7 +6,7 @@ namespace Substitution
     {
         public MonoalphabeticSubstitution()
         {
-
+            GenerateEncryptionKey();
         }
 
         public void Decrypt()
@@ -18,6 +18,7 @@ namespace Substitution
         {
             cipherText = Substitution(encryptionKey, CryptoOperation.Encrypt);
         }
+
 
         public void GenerateDecryptionKey()
         {

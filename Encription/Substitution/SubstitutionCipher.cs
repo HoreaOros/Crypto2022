@@ -33,6 +33,13 @@ namespace Substitution
             }
         }
         protected Dictionary<char, char> encryptionKey = new Dictionary<char, char>();
+        public string Key 
+        { 
+            get
+            {
+                return string.Join(" ", encryptionKey.Values);
+            }
+        }
         protected Dictionary<char, char> decryptionKey = new Dictionary<char, char>();
         protected string Substitution(Dictionary<char, char> key, CryptoOperation operation)
         {
