@@ -6,7 +6,7 @@
         xmlns:System="clr-namespace:System;assembly=System.Runtime"
         x:Class="SymmetricEncyption.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow"
+        Title="Symmetric algorithms"
         Height="450"
         Width="800">
 
@@ -17,16 +17,19 @@
             <RowDefinition Height="30" />
             <RowDefinition Height="30" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="19*" />
-            <ColumnDefinition Width="45*" />
-            <ColumnDefinition Width="16*" />
+            <ColumnDefinition Width="25*" />
+            <ColumnDefinition Width="50*" />
+            <ColumnDefinition Width="25*" />
         </Grid.ColumnDefinitions>
         <Label Content="File"
                HorizontalAlignment="Left"
-               Margin="20,0,0,0"
+               Margin="20.3,0,0,0"
                VerticalAlignment="Center"
+               Grid.Row="0"
+               Grid.Column="0"
                HorizontalContentAlignment="Left" />
         <Label Content="Mod de operare"
                HorizontalAlignment="Left"
@@ -42,27 +45,23 @@
                HorizontalContentAlignment="Left" />
         <Button Grid.Column="2"
                 Content="Browse"
-                HorizontalAlignment="Center"
-                Margin="0,0,0,0"
+                Margin="5,0,0,0"
                 VerticalAlignment="Center"
                 Click="Button_Click" />
         <Label x:Name="lblFileName"
                Grid.Column="1"
-               Content=""
-               HorizontalAlignment="Stretch"
+               Content="[file name]"
                VerticalAlignment="Center" />
         <ComboBox x:Name="cboModOperare"
                   Grid.Column="1"
                   HorizontalAlignment="Left"
-                  Margin="45,0,0,0"
+                  Margin="45,4,0,0"
                   Grid.Row="2"
-                  VerticalAlignment="Center"
-                  Width="120">
-            <System:String>ECB</System:String>
-            <System:String>CBC</System:String>
-            <System:String>CFB</System:String>
-            <System:String>CTS</System:String>
-            <System:String>OFB</System:String>
+                  VerticalAlignment="Top"
+                  Width="120"
+                  ItemsSource="{Binding Source={x:Static local:Context.CipherMode}}"
+                  SelectedIndex="0">
+
         </ComboBox>
         <Label Content="Algoritm"
                HorizontalAlignment="Left"
@@ -74,26 +73,31 @@
                   Margin="45,0,0,0"
                   Grid.Row="1"
                   VerticalAlignment="Center"
-                  Width="120">
-            <System:String>DES</System:String>
-            <System:String>AES</System:String>
-            <System:String>TripleDES</System:String>
-            <System:String>Rijndael</System:String>
-            <System:String>RC2</System:String>
-        </ComboBox>
+                  Width="120"
+                  ItemsSource="{Binding Source={x:Static local:Context.Algos}}"
+                  SelectedIndex="0" />
+
         <ComboBox Grid.Column="1"
                   HorizontalAlignment="Left"
                   Margin="45,0,0,0"
                   Grid.Row="3"
                   VerticalAlignment="Center"
-                  Width="120" />
+                  Width="120"
+                  ItemsSource="{Binding Source={x:Static local:Context.PaddingMode}}"
+                  SelectedIndex="0" />
+
         <StackPanel Grid.Column="2"
                     Grid.Row="4"
-                    Margin="5,5,5,5">
+                    Margin="5,5,5,5"
+                    Grid.RowSpan="2">
             <Button Content="Encrypt"
-                    Margin="5,5,0,5" />
+                    Margin="5,5,5,5"
+                    HorizontalAlignment="Stretch"
+                    Click="Button_Click_1" />
             <Button Content="Decrypt"
-                    Margin="5,5,0,5" />
+                    Margin="5,5,5,5"
+                    HorizontalAlignment="Stretch"
+                    Click="Button_Click_2" />
         </StackPanel>
 
     </Grid>

@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Security.Cryptography;
-public class Context
+namespace SymmetricEncyption
 {
-	public string[] CipherMode => Enum.GetNames(typeof(CipherMode)); 
-	public string[] PaddingMode => Enum.GetNames(typeof(PaddingMode));
+	public static class Context
+	{
+		public static string[] CipherMode => Enum.GetNames(typeof(CipherMode));
+		public static string[] PaddingMode => Enum.GetNames(typeof(PaddingMode));
+		public static string[] Algos => new string[] { "DES", "AES", "TripleDES", "Rijndael", "RC2" };
+	}
 }
