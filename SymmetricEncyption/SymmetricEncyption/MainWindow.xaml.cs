@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -48,7 +49,7 @@ namespace SymmetricEncyption
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            Task.Delay(5000).Wait();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
