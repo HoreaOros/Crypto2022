@@ -82,7 +82,6 @@ namespace Hash2
                 return;
             using (FileStream f = new FileStream(filename, FileMode.Open, FileAccess.Read))
             {
-                
                 var t = Task.Run(() => h.ComputeHash(f));
                 
                 byte[] result = await t;
